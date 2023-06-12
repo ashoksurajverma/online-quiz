@@ -1,19 +1,30 @@
 import React, { useState } from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import { array } from "../dummy";
 import Quiz from "./Quiz";
 
 const RenderSubjects = ({ subjects, onHandleSelectSubject }) => {
   return (
-    <>
-      <h3>Please Choose the subjects: </h3>
-      {subjects.map((subject) => {
-        return (
-          <div onClick={() => onHandleSelectSubject(subject)}>
-            {subject?.subject}
-          </div>
-        );
-      })}
-    </>
+    <Row>
+      <Col>
+        {/* <div className="question">
+
+        </div> */}
+        <h3>Please Choose the subjects: </h3>
+        {subjects.map((subject) => {
+          return (
+            <div
+              className="question"
+              onClick={() => onHandleSelectSubject(subject)}
+            >
+              {subject?.subject}
+            </div>
+          );
+        })}
+      </Col>
+    </Row>
   );
 };
 
@@ -24,26 +35,22 @@ function QuizWrapper() {
   const onHandleSelectSubject = (subject) => {
     setSelectedSubject(subject);
   };
-  console.log(
-    "========== selectedSubject ===========",
-    selectedSubject,
-    Object.keys(selectedSubject).length !== 0
-  );
+
   return (
-    <>
-      <RenderSubjects
-        subjects={subjectWiseQuestions}
-        onHandleSelectSubject={onHandleSelectSubject}
-      />
-      <div>
-        {/* {subjectWiseQuestions.map((subject) => {
-          return <Quiz subject={subject} />;
-        })} */}
-        {Object.keys(selectedSubject).length !== 0 && (
+    <Container className="root-container">
+      {Object.keys(selectedSubject).length === 0 && (
+        <RenderSubjects
+          subjects={subjectWiseQuestions}
+          onHandleSelectSubject={onHandleSelectSubject}
+        />
+      )}
+
+      {Object.keys(selectedSubject).length !== 0 && (
+        <div>
           <Quiz subject={selectedSubject} />
-        )}
-      </div>
-    </>
+        </div>
+      )}
+    </Container>
   );
 }
 

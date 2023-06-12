@@ -1,16 +1,27 @@
-import Quiz from "./Quiz";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 function SignIn() {
   return (
-    <div class="container">
-      <Quiz />
-      <h2>Login Form</h2>
-      <form action="your-server-endpoint" method="POST">
-        <label for="password">Mobile Number:</label>
-        <input type="text" id="mobile" name="mobile" required />
-        <button>Submit</button>
-      </form>
-    </div>
+    <Container class="container">
+      <Row>
+        <Col>
+          <div className="form-wrapper">
+            <h2>Login Form</h2>
+            <Form>
+              <div className="form-element">
+                <Form.Label htmlFor="inputPassword5">Mobile Number</Form.Label>
+                <Form.Control type="text" aria-describedby="mobile number" />
+              </div>
+              <Button variant="primary">Submit</Button>
+            </Form>
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

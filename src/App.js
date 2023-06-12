@@ -5,7 +5,7 @@ import SignIn from "./components/Login";
 import Header from "./components/Header";
 import Quiz from "./components/Quiz";
 import QuizWrapper from "./components/QuizWrapper";
-
+import "./App.css";
 function App() {
   return (
     <BrowserRouter>
