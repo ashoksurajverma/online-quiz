@@ -4,6 +4,7 @@ import Signup from "./components/Signup";
 import SignIn from "./components/Login";
 import Header from "./components/Header";
 import Quiz from "./components/Quiz";
+import QuizWrapper from "./components/QuizWrapper";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<SignIn />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/quiz" element={<Quiz />} />
+        <Route path="/quiz" element={<QuizWrapper />} />
         {/* <Route path="*" element={<NoMatch />} /> */}
       </Routes>
     </BrowserRouter>

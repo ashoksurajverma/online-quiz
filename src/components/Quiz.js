@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import { array } from "../dummy";
 import Question from "./Question";
 
-function Quiz() {
-  const [questionsCollection, setData] = useState(array);
+function Quiz({ subject }) {
+  const [questionsCollection, setData] = useState(subject);
   const [score, setScore] = useState(0);
   const [results, setResults] = useState({});
   const [isSubmit, setIsSubmmit] = useState(false);
 
   const onHandleChange = (value, question) => {
-    console.log("============== question =========", question);
-    console.log("============ event ========", value);
     const isCorrect = question.ans.toLowerCase() === value.toLowerCase();
     setResults({ ...results, [question.id]: isCorrect });
   };
@@ -32,13 +30,15 @@ function Quiz() {
     setScore(count);
   };
 
-  console.log("========= RESULTS ===================", results);
+  console.log("========= RESULTS ===================", questionsCollection);
 
   return (
     <>
+      <h2>{questionsCollection?.subject}</h2>
+
       {!isSubmit && (
         <div>
-          {questionsCollection.map((question) => {
+          {questionsCollection?.questions.map((question) => {
             return (
               <Question question={question} onHandleChange={onHandleChange} />
             );
