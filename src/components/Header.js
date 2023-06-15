@@ -36,13 +36,16 @@ const AfterLogin = () => {
   );
 };
 
-function ColorSchemesExample({ currentUser }) {
-  const [user, setUser] = useState(currentUser);
+function ColorSchemesExample() {
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   const location = useLocation();
+
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     setUser(user);
-  }, [user, location]);
+    console.log("=========== USERS ==========", user);
+  }, [location]);
+
   return (
     <>
       <Navbar bg="primary" variant="dark">

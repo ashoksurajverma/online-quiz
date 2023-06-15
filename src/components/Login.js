@@ -59,7 +59,7 @@ function SignIn() {
               <div className="form-element">
                 <Form.Label htmlFor="inputPassword5">Password</Form.Label>
                 <Form.Control
-                  type="text"
+                  type="password"
                   aria-describedby="password"
                   name="password"
                   onChange={onHandleChange}

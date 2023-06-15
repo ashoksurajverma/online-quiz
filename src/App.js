@@ -7,17 +7,16 @@ import QuizWrapper from "./components/QuizWrapper";
 import "./App.css";
 import { useEffect, useState } from "react";
 function App() {
-  const [user, setUser] = useState(null);
-  const location = useLocation();
+  // const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    setUser(user);
-  }, [location]);
+  // useEffect(() => {
+  //   const user = JSON.parse(localStorage.getItem("user"));
+  //   setUser(user);
+  // });
 
   return (
     <BrowserRouter>
-      <Header currentUser={user} />
+      <Header />
       <Routes>
         <Route path="/" element={<SignIn />} />
         <Route path="/signup" element={<Signup />} />

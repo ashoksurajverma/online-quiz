@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Question from "./Question";
 import Button from "react-bootstrap/esm/Button";
+import ConfirmationModal from "./ConfirmModal";
 
 function Quiz({ subject, onHandleBack }) {
   const [questionsCollection] = useState(subject);
+  const [show, setShow] = useState(0);
   const [score, setScore] = useState(0);
   const [results, setResults] = useState({});
   const [isSubmit, setIsSubmmit] = useState(false);
@@ -13,9 +15,12 @@ function Quiz({ subject, onHandleBack }) {
     setResults({ ...results, [question.id]: isCorrect });
   };
 
+  const toggle = () => setShow(!show);
+
   const handleSubmit = () => {
     setIsSubmmit(true);
     calculateScore();
+    toggle();
   };
 
   const calculateScore = () => {
@@ -32,8 +37,12 @@ function Quiz({ subject, onHandleBack }) {
 
   return (
     <>
+      <ConfirmationModal
+        confirm={handleSubmit}
+        handleClose={toggle}
+        show={show}
+      />
       <h2 className="subject-head">{questionsCollection?.subject}</h2>
-
       {!isSubmit && (
         <>
           <div>
@@ -48,7 +57,7 @@ function Quiz({ subject, onHandleBack }) {
             })}
           </div>
           <div className="sub-btn-wrapper">
-            <Button onClick={handleSubmit}>Submit</Button>
+            <Button onClick={toggle}>Submit</Button>
           </div>
         </>
       )}
