@@ -58,7 +58,9 @@ function Quiz({ subject, onHandleBack }) {
         <div>
           <h3>Your Score: </h3>
           <div>Score: {score}</div>
-          <Button onClick={onHandleBack}>Back</Button>
+          <div className="back-btn">
+            <Button onClick={onHandleBack}>Back</Button>
+          </div>
         </div>
       )}
     </>
