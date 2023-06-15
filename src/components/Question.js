@@ -1,9 +1,11 @@
 import React from "react";
 
-function Question({ question, onHandleChange }) {
+function Question({ question, onHandleChange, index }) {
   return (
     <div>
-      <h3>{question.question}</h3>
+      <h3>
+        {index}.{question.question}
+      </h3>
       <ul>
         {question.options.map((option) => {
           return (

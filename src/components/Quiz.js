@@ -33,19 +33,27 @@ function Quiz({ subject, onHandleBack }) {
 
   return (
     <>
-      <h2>{questionsCollection?.subject}</h2>
+      <h2 className="subject-head">{questionsCollection?.subject}</h2>
 
       {!isSubmit && (
-        <div>
-          {questionsCollection?.questions.map((question) => {
-            return (
-              <Question question={question} onHandleChange={onHandleChange} />
-            );
-          })}
-
-          <button onClick={handleSubmit}>Submit</button>
-        </div>
+        <>
+          <div>
+            {questionsCollection?.questions.map((question, index) => {
+              return (
+                <Question
+                  question={question}
+                  onHandleChange={onHandleChange}
+                  index={index + 1}
+                />
+              );
+            })}
+          </div>
+          <div className="sub-btn-wrapper">
+            <Button onClick={handleSubmit}>Submit</Button>
+          </div>
+        </>
       )}
+
       {isSubmit && (
         <div>
           <h3>Your Score: </h3>
