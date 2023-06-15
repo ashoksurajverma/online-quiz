@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { array } from "../dummy";
 import Question from "./Question";
 import Button from "react-bootstrap/esm/Button";
 
 function Quiz({ subject, onHandleBack }) {
-  const [questionsCollection, setData] = useState(subject);
+  const [questionsCollection] = useState(subject);
   const [score, setScore] = useState(0);
   const [results, setResults] = useState({});
   const [isSubmit, setIsSubmmit] = useState(false);

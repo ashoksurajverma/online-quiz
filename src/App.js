@@ -1,19 +1,19 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, useLocation } from "react-router-dom";
 
 import Signup from "./components/Signup";
 import SignIn from "./components/Login";
 import Header from "./components/Header";
-import Quiz from "./components/Quiz";
 import QuizWrapper from "./components/QuizWrapper";
 import "./App.css";
 import { useEffect, useState } from "react";
 function App() {
   const [user, setUser] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     setUser(user);
-  });
+  }, [location]);
 
   return (
     <BrowserRouter>
