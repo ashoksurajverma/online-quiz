@@ -11,7 +11,6 @@ function SignIn() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
   });
@@ -27,6 +26,11 @@ function SignIn() {
     }
 
     let users = JSON.parse(localStorage.getItem("users"));
+    if (!users) {
+      alert("No user found, Please Sign up before login");
+      navigate("/signup");
+      return;
+    }
     const user = find(users, { email: formData.email });
 
     if (user.password === formData.password) {

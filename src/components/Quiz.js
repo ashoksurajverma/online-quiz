@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { array } from "../dummy";
 import Question from "./Question";
+import Button from "react-bootstrap/esm/Button";
 
-function Quiz({ subject }) {
+function Quiz({ subject, onHandleBack }) {
   const [questionsCollection, setData] = useState(subject);
   const [score, setScore] = useState(0);
   const [results, setResults] = useState({});
@@ -30,8 +31,6 @@ function Quiz({ subject }) {
     setScore(count);
   };
 
-  console.log("========= RESULTS ===================", questionsCollection);
-
   return (
     <>
       <h2>{questionsCollection?.subject}</h2>
@@ -51,6 +50,7 @@ function Quiz({ subject }) {
         <div>
           <h3>Your Score: </h3>
           <div>Score: {score}</div>
+          <Button onClick={onHandleBack}>Back</Button>
         </div>
       )}
     </>

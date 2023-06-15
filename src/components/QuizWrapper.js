@@ -36,6 +36,10 @@ function QuizWrapper() {
     setSelectedSubject(subject);
   };
 
+  const back = () => {
+    setSelectedSubject({});
+  };
+
   return (
     <Container className="root-container">
       {Object.keys(selectedSubject).length === 0 && (
@@ -47,7 +51,7 @@ function QuizWrapper() {
 
       {Object.keys(selectedSubject).length !== 0 && (
         <div>
-          <Quiz subject={selectedSubject} />
+          <Quiz subject={selectedSubject} onHandleBack={back} />
         </div>
       )}
     </Container>
