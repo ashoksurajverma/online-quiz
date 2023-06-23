@@ -19,7 +19,7 @@ const RenderSubjects = ({ subjects, onHandleSelectSubject }) => {
               className="question"
               onClick={() => onHandleSelectSubject(subject)}
             >
-              {subject?.subject}
+              {subject?.subject} 1
             </div>
           );
         })}

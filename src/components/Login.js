@@ -33,9 +33,9 @@ function SignIn() {
     }
     const user = find(users, { email: formData.email });
 
-    if (user.password === formData.password) {
+    if (user?.password === formData?.password) {
       localStorage.setItem("user", JSON.stringify(user));
-      navigate("/quiz");
+      navigate("/dashboard");
     } else {
       alert(`Invalid email and password`);
     }

@@ -51,7 +51,7 @@ function Signup() {
       <Row>
         <Col>
           <div className="form-wrapper">
-            <h2>Signup Form</h2>
+            <h2>Registration Form</h2>
             <Form>
               <div className="form-element">
                 <Form.Label htmlFor="inputPassword5">Name</Form.Label>

@@ -50,3 +50,35 @@ h2.subject-head {
 .back-btn {
   margin-top: 10px;
 }
+
+.idea {
+  background: #c9b7b7;
+  padding: 20px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  font-size: large;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.sub-idea {
+  background: #b298d6;
+  padding: 20px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  font-size: large;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.heading {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.thanks {
+  text-align: center;
+  margin-top: 15%;
+}

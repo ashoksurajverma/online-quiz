@@ -4,7 +4,7 @@ function Question({ question, onHandleChange, index }) {
   return (
     <div>
       <h3>
-        {index}.{question.question}
+        {index}.{question.question} 1
       </h3>
       <ul>
         {question.options.map((option) => {
